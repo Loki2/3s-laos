@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const blogSchema = new mongoose.Schema(
+
+const volentearSchema = new mongoose.Schema(
   {
     title:{
       type: String,
@@ -28,6 +29,6 @@ const blogSchema = new mongoose.Schema(
   }
 )
 
-const Blog = mongoose.model("Blog", blogSchema);
+const Volentear = mongoose.model("Volentear", volentearSchema);
 
-module.exports = Blog;
+module.exports = Volentear;

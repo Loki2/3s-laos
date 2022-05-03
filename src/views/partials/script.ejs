@@ -13,8 +13,20 @@
 <script src="/backend/src/plugins/slick/slick.min.js"></script>
 <!-- bootstrap-touchspin js -->
 <script src="/backend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
-	
+<script src="/backend/src/plugins/dropzone/src/dropzone.js"></script>
+<script src="/backend/src/plugins/dropzone/src/dropzone.js"></script>
+
 	<script>
+		Dropzone.autoDiscover = false;
+		$(".dropzone").dropzone({
+			addRemoveLinks: true,
+			removedfile: function(file) {
+				var name = file.name;
+				var _ref;
+				return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+			}
+		});
+
 		window.addEventListener('DOMContentLoaded', function () {
 			var image = document.getElementById('image');
 			var cropBoxData;
@@ -70,3 +82,4 @@
 		});
 	});
 	</script>
+

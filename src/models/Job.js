@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
 
-const blogSchema = new mongoose.Schema(
+
+const jobSchema = new mongoose.Schema(
   {
     title:{
       type: String,
       required: true
     },
-    content:{
+    position:{
+      type: String,
+      required: true
+    },
+    desc:{
       type: String,
       required: true
     },
     image:{
       type: String,
       required: true
-    },
-    category: {
-        type: String,
-        required: true
     },
     status: {
       type: String,
@@ -28,6 +29,6 @@ const blogSchema = new mongoose.Schema(
   }
 )
 
-const Blog = mongoose.model("Blog", blogSchema);
+const Job = mongoose.model("Job", jobSchema);
 
-module.exports = Blog;
+module.exports = Job;

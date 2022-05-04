@@ -58,9 +58,9 @@ exports.post_createBlog = async (req, res, next) => {
         });
       }
 
-    })
+    });
 
-    res.redirect('/admin/blogs')
+    res.redirect('/admin/blogs');
   } catch (error) {
     next(error);
   }

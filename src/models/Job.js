@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema(
   {
-    title:{
-      type: String,
-      required: true
-    },
     position:{
       type: String,
       required: true
@@ -16,6 +12,10 @@ const jobSchema = new mongoose.Schema(
       required: true
     },
     image:{
+      type: String,
+      required: true
+    },
+    type: {
       type: String,
       required: true
     },

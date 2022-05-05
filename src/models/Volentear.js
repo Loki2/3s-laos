@@ -7,7 +7,11 @@ const volentearSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    content:{
+    location: {
+      type: String,
+      required: true
+    },
+    desc:{
       type: String,
       required: true
     },
@@ -15,9 +19,9 @@ const volentearSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    category: {
-        type: String,
-        required: true
+    remark: {
+      type: String,
+      required: true
     },
     status: {
       type: String,

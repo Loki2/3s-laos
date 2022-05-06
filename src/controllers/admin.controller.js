@@ -12,3 +12,11 @@ exports.get_admin = async (req, res, next) => {
   }
   
 }
+
+exports.get_Organize = async (req, res, next) => {
+  try {
+    res.render('admin/organize')
+  } catch (error) {
+    next(error)
+  }
+}

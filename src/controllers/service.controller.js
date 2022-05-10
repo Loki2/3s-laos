@@ -28,7 +28,7 @@ exports.get_createServices = async (req, res, next) => {
 exports.post_createServices = async (req, res, next) => {
   try {
     const imageFile = typeof req.files.serviceImage !== 'undefined' ? req.files.serviceImage.name : "";
-    const {name_lao, name_eng, desc, icon, status} = req.body;
+    const { name_lao, name_eng, desc, icon, status} = req.body;
 
     console.log(req.body)
 

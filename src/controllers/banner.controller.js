@@ -1,12 +1,12 @@
 const Banner = require("../models/Banner");
 const mkdirp = require("mkdirp");
+const Service = require('../models/Service');
 
 
 exports.get_banners = async (req, res, next) => {
   try { 
     const banners = await Banner.find({}).sort({ createdAt: -1 });
 
-    console.log("banners:", banners)
     res.render("admin/banner/index", {
       banners: banners
     });
@@ -17,7 +17,10 @@ exports.get_banners = async (req, res, next) => {
 
 exports.get_createBanner = async (req, res, next) => {
   try {
-    res.render("admin/banner/create");
+    const services = await Service.find({}).sort({ createdAt: -1 })
+    res.render("admin/banner/create", {
+      services: services
+    });
   } catch (error) {
     next(error)
   }

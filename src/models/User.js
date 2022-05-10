@@ -3,6 +3,51 @@ const { roles } = require("../utils/constant");
 
 const userSchema = new mongoose.Schema(
   {
+    //***************** User Basic Information *********************/
+    firstname: {
+      type: String,
+      default: "",
+    },
+    lastname: {
+      type: String,
+      default: "",
+    },
+    gender: {
+      type: String,
+      default: "",
+    },
+    dob: {
+      type: Date,
+      default: "",
+    },
+    bio: {
+      type: String,
+      default: "",
+    },
+    contact: {
+      type: String,
+      default: "",
+    },
+    phone: {
+      type: String,
+      default: "",
+    },
+    address: {
+      type: String,
+      default: "",
+    },
+    city: {
+      type: String,
+      default: "",
+    },
+    province: {
+      type: String,
+      default: "",
+    },
+    country: {
+      type: String,
+      default: "",
+    },     //************ System Auth information *************/
     username: {
       type: String,
       required: true,

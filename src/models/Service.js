@@ -14,7 +14,6 @@ const serviceSchema = new mongoose.Schema(
     desc: {
       type: String,
       required: true,
-      maxlength: 100
     },
     image:{
       type: String,

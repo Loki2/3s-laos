@@ -12,7 +12,7 @@ router.get('/profile', authenticated, get_myInform);
 
 
 //Admin manager user profile information
-router.get('/profile/:id', authenticated, get_profile);
+router.get('/:id', authenticated, get_profile);
 
 router.get('/reset-password/:id', authenticated, get_resetPassowrd);
 

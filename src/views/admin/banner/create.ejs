@@ -37,7 +37,7 @@
 								<div class="form-group">
 									<label>ອະທີບາຍ/Description*</label>
                   <!-- <textarea type="text" name="desc" id="desc" class="textarea_editor form-control border-radius-5" maxlength="150" placeholder="ໃສ່ຄຳອະທີບາຍ (150ອັກສອນ) ..."></textarea> -->
-                  <textarea type="text" name="desc" id="desc" class="form-control" maxlength="150" placeholder="Description (100 Characters) ..."></textarea>
+                  <textarea type="text" name="desc" id="desc" class="form-control" placeholder="Description (100 Characters) ..."></textarea>
 
 								</div>
 							</div>
@@ -53,10 +53,12 @@
 							<div class="col-md-4 col-sm-12">
 								<div class="form-group">
 									<label>ເລືອກເຊື່ອມກັບ/Link To Service</label>
-									<input type="text" name="slug" id="slug" class="form-control" placeholder="slug..." required>
-									<!-- <select class="custom-select2 form-control" name="slug" style="width: 100%; height: 35px;">
-											<option value="">aaaa</option>
-									</select> -->
+									<!-- <input type="text" name="slug" id="slug" class="form-control" placeholder="slug..." required> -->
+									<select class="custom-select2 form-control" name="slug" style="width: 100%; height: 35px;">
+										<% services.forEach(function(service){ %>	
+											<option value="<%= service.name_eng %>"><%= service.name_eng %> - <%= service.name_lao %></option>
+										<% }) %>
+									</select>
 								</div>
 							</div>
               <div class="col-md-2 col-sm-12">

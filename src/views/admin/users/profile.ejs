@@ -30,64 +30,109 @@
 						<div class="pd-20 card-box height-100-p">
 							<div class="profile-photo">
 								<a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
-								<img src="/backend/vendors/images/photo1.jpg" alt="" class="avatar-photo">
+								<% if( image == '') { %>
+									<img src="/backend/vendors/images/photo1.jpg" alt="" class="avatar-photo">
+									<% }else { %>
+									<img src="/uploads/images/profiles/<%= id %>/<%= image %>" alt="" class="avatar-photo">
+								<% } %>
 								<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
 											<div class="modal-body pd-5">
 												<div class="img-container">
-													<img id="image" src="/backend/vendors/images/photo2.jpg" alt="Picture">
+													<% if( image == '') { %>
+														<img id="image" src="/backend/vendors/images/photo2.jpg" alt="Picture">
+														<% }else { %>
+															<img id="image" src="/uploads/images/profiles/<%= id %>/<%= image %>" alt="Picture">
+													<% } %>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<input type="submit" value="Update" class="btn btn-primary">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<h5 class="text-center h5 mb-0">Ross C. Lopez</h5>
-							<p class="text-center text-muted font-14">Lorem ipsum dolor sit amet</p>
+							<% if( firstname == '' & lastname == '') { %>
+								<h5 class="text-center h5 mb-0">Update your profile</h5>
+							<% } else { %>
+								<h5 class="text-center h5 mb-0"><%= firstname %> <%= lastname %></h5>
+							<% } %>
+							<% if(address == '') { %>
+								<p class="text-center text-muted font-14">Update your profile</p>
+							<% } else { %>
+								<p class="text-center text-muted font-14"><%= address %></p>
+							<% } %>
 							<div class="profile-info">
 								<h5 class="mb-20 h5 text-blue">Contact Information</h5>
 								<ul>
 									<li>
 										<span>Username:</span>
-										Loki_n9
+										<%= username %>
 									</li>
 									
 									<li>
 										<span>Email Address:</span>
-										FerdinandMChilds@test.com
+										<%= email %>
 									</li>
 
 									<li>
 										<span>Contact:</span>
-										America
+										<% if(contact == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= contact %>
+										<% } %>
 									</li>
 
 									<li>
 										<span>Phone:</span>
-										619-229-0054
+										<% if(phone == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= phone %>
+										<% } %>
 									</li>
 									<li>
 										<span>Address:</span>
-										1807 Holden Street<br>
-										San Diego, CA 92115
+										<% if(address == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= address %>
+										<% } %>
 									</li>
 									<li>
 										<span>City:</span>
-										619-229-0054
+										<% if(city == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= city %>
+										<% } %>
 									</li>
 									<li>
 										<span>Province:</span>
-										America
+										<% if(province == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= province %>
+										<% } %>
+									</li>
+									<li>
+										<span>Country:</span>
+										<% if(country == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= country %>
+										<% } %>
 									</li>
 									<li>
 										<span>Biography:</span>
-										1807 Holden Street<br>
-										San Diego, CA 92115
+										<% if(bio == '') { %>
+											<p>Update your profile</p>
+										<% } else { %>
+											<%= bio %>
+										<% } %>
 									</li>
 								</ul>
 							</div>
@@ -117,21 +162,29 @@
 										<!-- Setting Tab start -->
 										<div class="tab-pane fade show active height-100-p" id="profile" role="tabpanel">
 											<div class="profile-setting">
-												<form>
+												<form action="/admin/users/profile/<%= id %>" method="POST" enctype="multipart/form-data">
 													<ul class="profile-edit-list row">
 														<li class="weight-500 col-md-12">
 															<div class="row">
 																<div class="col-md-6 col-sm-12">
 																	<div class="form-group">
 																		<label>First Name:</label>
-																		<input class="form-control form-control-lg" type="text">
+																		<% if(firstname == ''){ %>
+																		<input class="form-control form-control-lg" type="text" name="firstname" id="firstname" placeholder="Sam..." />
+																		<% } else { %>
+																		<input class="form-control form-control-lg" type="text" name="firstname" id="firstname" value="<%= firstname %>" placeholder="Sam..." />
+																		<% } %>
 																	</div>
 																</div>
 
 																<div class="col-md-6 col-sm-12">
 																	<div class="form-group">
 																		<label>Last Name:</label>
-																		<input class="form-control form-control-lg" type="text">
+																		<% if(lastname == ''){ %>
+																			<input class="form-control form-control-lg" type="text" name="lastname" id="lastname" placeholder="Smith...">
+																		<% } else { %>
+																			<input class="form-control form-control-lg" type="text" name="lastname" id="lastname" value="<%= lastname %>" placeholder="Smith...">
+																		<% } %>
 																	</div>
 																</div>
 															</div>
@@ -139,92 +192,150 @@
 																<div class="col-md-6 col-sm-12">
 																	<div class="form-group">
 																		<label>Email Address:</label>
-																		<input class="form-control form-control-lg" type="text">
+																		<% if(email == '') { %>
+																			<input class="form-control form-control-lg" type="email" name="email" id="email" placeholder="examplem@email.com" />
+																		<% } else { %>
+																			<input class="form-control form-control-lg" type="email" name="email" id="email" value="<%= email %>"  placeholder="examplem@email.com" />
+																		<% } %>
 																	</div>
 																</div>
 
-																<div class="col-md-3 col-sm-12">
+																<div class="col-md-6 col-sm-12">
 																	<div class="form-group">
 																		<label>Contact:</label>
-																		<input class="form-control form-control-lg" type="text">
+																		<% if( contact == '' ) { %>
+																			<input class="form-control form-control-lg" type="text" name="contact" id="contact" placeholder="(+856)-20-2345-6789 Or ID" />
+																		<% } else { %>
+																			<input class="form-control form-control-lg" type="text" name="contact" id="contact" value="<%= contact %>" placeholder="(+856)-20-2345-6789 Or ID" />
+																		<% } %>
 																	</div>
 																</div>
 
-																<div class="col-md-3 col-sm-12">
+																<div class="col-md-6 col-sm-12">
 																	<div class="form-group">
 																		<label>Phone</label>
-																		<input class="form-control form-control-lg" type="text">
+																		<% if( phone == '' ){ %>
+																			<input class="form-control form-control-lg" type="text" name="phone" id="phone"  placeholder="030-2345-678" />
+																		<% }else{ %>
+																			<input class="form-control form-control-lg" type="text" name="phone" id="phone" value="<%= phone %>" placeholder="030-2345-678" />
+																		<% } %>
+																	</div>
+																</div>
+
+
+																<div class="col-md-6 col-sm-12">
+																	<div class="form-group">
+																		<label>Date of birth</label>
+																		<% if( dob == null) { %>
+																			<input class="form-control date-picker" type="text" name="dob" id="dob"  placeholder="19-09-1999" />
+																		<% }else{ %>
+																			<input class="form-control date-picker" type="text" name="dob" id="dob" value="<%= dob %>" placeholder="19-09-1999" />
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-12 col-sm-12">
+																	<div class="form-group">
+																		<label>Position:</label>
+																		<% if(position == ''){ %>
+																		<input class="form-control form-control-lg" type="text" name="position" id="position"  placeholder="ວິສະວະກອນພັງ ແລະ ໂຄງສ້າງ (Structure Engineer)" />
+																		<% }else { %>
+																		<input class="form-control form-control-lg" type="text" name="position" id="position" value="<%= position %>"  placeholder="ວິສະວະກອນພັງ ແລະ ໂຄງສ້າງ (Structure Engineer)" />
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-12 col-sm-12">
+																	<div class="form-group">
+																		<label>Biography:</label>
+																		<% if( bio == '') { %>
+																			<textarea class="form-control" name="bio" id="bio" placeholder="ex: I was born ..."></textarea>
+																		<% }else { %>
+																			<textarea class="form-control" name="bio" id="bio" placeholder="ex: I was born ..."><%= bio %></textarea>
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-6 col-sm-12">
+																	<div class="form-group">
+																		<label>Address</label>
+																		<% if( address == '' ) { %>
+																		<input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="23, Road JFK back street, Washington D.C, USA" />
+																		<% } else { %>
+																		<input class="form-control form-control-lg" type="text" name="address" id="address" value="<%= address %>" placeholder="23, Road JFK back street, Washington D.C, USA" />
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-6 col-sm-12">
+																	<div class="form-group">
+																		<label>City:</label>
+																		<% if( city == '' ) { %>
+																		<input class="form-control form-control-lg" type="text" name="city" id="city" placeholder="Saythany District..." />
+																		<% } else { %>
+																		<input class="form-control form-control-lg" type="text" name="city" id="city" value="<%= city %>" placeholder="Saythany District..." />
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-6 col-sm-12">
+																	<div class="form-group">
+																		<label>State/Province/Region</label>
+																		<% if( province == '') { %>
+																		<input class="form-control form-control-lg" type="text" name="province" id="province"  placeholder="ex: Vientiane Capital">
+																		<% }else { %>
+																		<input class="form-control form-control-lg" type="text" name="province" id="province" value="<%= province %>" placeholder="ex: Vientiane Capital">
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-6 col-sm-12">
+																	<div class="form-group">
+																		<label>Country</label>
+																		<% if( country == '') {%>
+																				<select class="selectpicker form-control form-control-lg" name="country" id="country" data-style="btn-outline-secondary btn-lg" title="Select Country">
+																					<option value="China">China</option>
+																					<option value="India">India</option>
+																					<option value="Laos">Laos</option>
+																					<option value="Philipine">Philippine</option>
+																					<option value="Thailand">Thailand</option>
+																					<option value="Vietname">Vietname</option>
+																				</select>
+																			<% }else { %>
+																				<select class="selectpicker form-control form-control-lg" name="country" id="country" data-style="btn-outline-secondary btn-lg" title="Select Country">
+																					<option value="<%= country %>"><%= country %></option>
+																					<hr>
+																					<option value="China">China</option>
+																					<option value="India">India</option>
+																					<option value="Laos">Laos</option>
+																					<option value="Philipine">Philippine</option>
+																					<option value="Thailand">Thailand</option>
+																					<option value="Vietname">Vietname</option>
+																				</select>
+																		<% } %>
+																	</div>
+																</div>
+
+																<div class="col-md-12 col-sm-12">
+																	<div class="form-group">
+																		<label>Image File</label>
+																		<% if( image == '' ) { %>
+																		<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image" />
+																		<% } else { %>
+																			<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image" />
+																		<% } %>
 																	</div>
 																</div>
 															</div>
-															
-															
-															<div class="form-group">
-																<label>Title</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
-																<label>Email</label>
-																<input class="form-control form-control-lg" type="email">
-															</div>
-															<div class="form-group">
-																<label>Date of birth</label>
-																<input class="form-control form-control-lg date-picker" type="text">
-															</div>
-															<div class="form-group">
-																<label>Gender</label>
-																<div class="d-flex">
-																<div class="custom-control custom-radio mb-5 mr-20">
-																	<input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-																	<label class="custom-control-label weight-400" for="customRadio4">Male</label>
-																</div>
-																<div class="custom-control custom-radio mb-5">
-																	<input type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
-																	<label class="custom-control-label weight-400" for="customRadio5">Female</label>
-																</div>
-																</div>
-															</div>
-															<div class="form-group">
-																<label>Country</label>
-																<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg" title="Not Chosen">
-																	<option>United States</option>
-																	<option>India</option>
-																	<option>United Kingdom</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label>State/Province/Region</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
-																<label>Postal Code</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
-																<label>Phone Number</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
-																<label>Address</label>
-																<textarea class="form-control"></textarea>
-															</div>
-															<div class="form-group">
-																<label>Visa Card Number</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
-																<label>Paypal ID</label>
-																<input class="form-control form-control-lg" type="text">
-															</div>
-															<div class="form-group">
+															<!-- <div class="form-group">
 																<div class="custom-control custom-checkbox mb-5">
 																	<input type="checkbox" class="custom-control-input" id="customCheck1-1">
 																	<label class="custom-control-label weight-400" for="customCheck1-1">I agree to receive notification emails</label>
 																</div>
 															</div>
 															<div class="form-group mb-0">
-																<input type="submit" class="btn btn-primary" value="Update Information">
-															</div>
+																<input type="submit" class="btn btn-primary" value="Update">
+															</div> -->
 														</li>
 													</ul>
 												</form>

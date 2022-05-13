@@ -24,7 +24,7 @@
 						</div>
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
-								<a class="btn btn-primary" href="#" role="button">
+								<a class="btn btn-primary" href="/admin/users/add-user" role="button">
 									Create
 								</a>
 							</div>
@@ -52,12 +52,12 @@
                 <tr>
                   <td class="table-plus">
                     <div class="name-avatar d-flex align-items-center">
-                      <div class="avatar mr-2 flex-shrink-0">
+                      <div class="user-avatar mr-2 flex-shrink-0">
                         <% if (user.image == "" ) { %>
-                          <img src="/uploads/noimage.png" class="border-radius-100 shadow" width="40" height="40" alt="">
+                            <img src="/uploads/noimage.png" class="border-radius-10 shadow" width="48px"  alt="">
                           <% } else { %>
-                            <img src="/backend/vendors/images/photo4.jpg" class="border-radius-100 shadow" width="40" height="40" alt="">
-                        <% } %>                        
+                            <img src="/uploads/images/profiles/<%= user._id %>/<%= user.image %>" class="border-radius-10 shadow" width="48px" alt="">
+                        <% } %>                         
                       </div>
                       <div class="txt">
                         <div class="weight-600"><%= user.username %></div>

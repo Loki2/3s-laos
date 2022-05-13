@@ -59,7 +59,7 @@ img {
     border: 0;
     vertical-align: top;
     max-width: 100%;
-    height: auto
+    height: auto;
 }
 
 input,
@@ -140,6 +140,11 @@ p {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center
+}
+
+.user-avatar .mr-2 .flex-shrink-0 img {
+    width: 40px;
+    height: 40px;
 }
 
 .pre-loader .loader-logo {
@@ -1610,6 +1615,12 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     border-radius: 100%;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .18);
     box-shadow: 0 0 10px rgba(0, 0, 0, .18)
+}
+
+.user-info-dropdown .dropdown-toggle .user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .user-info-dropdown .dropdown-toggle .user-name {
@@ -3587,7 +3598,13 @@ body.IE .register-page-wrap .container {
     width: 160px;
     height: 160px;
     margin: 0 auto 15px;
-    position: relative
+    position: relative;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profile-photo .edit-avatar {

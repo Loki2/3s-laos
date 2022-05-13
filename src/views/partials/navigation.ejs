@@ -160,7 +160,11 @@
           data-toggle="dropdown"
         >
           <span class="user-icon">
-            <img src="/backend/vendors/images/photo1.jpg" alt="" />
+            <% if(user.image == '') { %>
+              <img src="/backend/vendors/images/photo1.jpg" alt="" />
+            <% }else { %>
+              <img src="/uploads/images/profiles/<%= user._id %>/<%= user.image %>" alt="" />
+            <% }%>
           </span>
           <span class="user-name"><%= user.username %></span>
         </a>

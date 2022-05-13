@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    position: {
+      type: String,
+      default: "",
+    },
     city: {
       type: String,
       default: "",

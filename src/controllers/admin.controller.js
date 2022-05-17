@@ -1,11 +1,14 @@
-
+const User = require("../models/User");
 
 exports.get_admin = async (req, res, next) => {
   try {
     const user = res.locals.user;
 
+    const users = await User.find({}).sort({ createdAt: -1 });
+
     res.render('admin/index', {
-      user: user
+      user: user,
+      users: users
     })
   } catch (error) {
     next(error)

@@ -1009,7 +1009,7 @@ select:focus {
     position: relative;
     display: inline-block;
     float: left;
-    margin-right: 35px;
+    margin-right: 25px;
 }
 .main-menu .navigation > li:last-child{
     margin-right: 0;
@@ -1018,9 +1018,9 @@ select:focus {
     position: relative;
     display: block;
     color: #27282c;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
     text-transform: uppercase;
     opacity: 1;
     padding: 39px 0px 37px;
@@ -10427,9 +10427,15 @@ li .single-footer-contact-info .text p span{
     display: block;
     background: #ffffff;
     padding: 45px 40px 40px;
-    margin: 73px 0 80px;
+    margin: 10px 0 14px;
     box-shadow: 0px 4px 10px 3px #e0e4e6;
+    border-radius: 10px;
 }
+
+.author-box-holder:hover {
+    background-color: lightgreen;
+}
+
 .author-box-holder .inner-box{
     position: relative;
     display: block;

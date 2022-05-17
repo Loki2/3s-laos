@@ -3,6 +3,7 @@ const Project = require("../models/Project");
 const Blog = require("../models/Blog");
 const Service = require('../models/Service');
 const Customer = require('../models/Customer');
+const Product = require('../models/Product');
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -44,8 +45,43 @@ exports.get_service_electrical = async (req, res, next) => {
 
 exports.get_home_products = async (req, res, next) => {
   try {
-    res.render("products");
+
+    const products = await Product.find({}).sort({ createdAt: -1 });
+
+    // console.log("product", products)
+
+    res.render("products", {
+      products: products
+    });
   } catch (error) {
     next(error);
   }
 };
+
+
+exports.get_home_volentears = async (req, res, next) => {
+  try {
+    res.render('volentear')
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+exports.get_home_jobs = async (req, res, next) => {
+  try {
+    res.render('hiring')
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+
+exports.get_home_about = async (req, res, next) => {
+  try {
+    res.render('about')
+  } catch (error) {
+    next(error)
+  }
+}

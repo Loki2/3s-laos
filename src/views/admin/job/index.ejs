@@ -37,7 +37,8 @@
 					<thead>
 						<tr>
 							<th class="table-plus datatable-nosort">Image</th>
-							<th>Position</th>
+							<th>Position Lao</th>
+							<th>Position Eng</th>
 							<th>Type</th>
 							<th>Status</th>
 							<th>Created At</th>
@@ -56,8 +57,9 @@
 									<% } %>
 								</td>
 								<td>
-									<h5 class="font-16"><%= job.position %></h5>
+									<h5 class="font-16"><%= job.position_la %></h5>
 								</td>
+								<td><%= job.position_en %></td>
 								<td><%= job.type %></td>
 								<td><%= job.status %></td>
 								<td><%= job.createdAt.toLocaleString() %></td>

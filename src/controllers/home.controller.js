@@ -4,6 +4,7 @@ const Blog = require("../models/Blog");
 const Service = require('../models/Service');
 const Customer = require('../models/Customer');
 const Product = require('../models/Product');
+const Job = require('../models/Job');
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -70,7 +71,11 @@ exports.get_home_volentears = async (req, res, next) => {
 
 exports.get_home_jobs = async (req, res, next) => {
   try {
-    res.render('hiring')
+    const jobs = await Job.find({}).sort({ createdAt: -1 });
+
+    res.render('hiring', {
+      jobs: jobs
+    })
   } catch (error) {
     next(error)
   }

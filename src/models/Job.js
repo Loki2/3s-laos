@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema(
   {
-    position:{
+    position_la:{
+      type: String,
+      required: true
+    },
+    position_en:{
       type: String,
       required: true
     },

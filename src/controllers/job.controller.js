@@ -31,10 +31,11 @@ exports.get_createJob = async (req, res, next) => {
 exports.post_createJob = async (req, res, next) => {
   try {
     const imageFile = typeof req.files.jobImage !== 'undefined' ? req.files.jobImage.name : "";
-    const { position, desc, type, status } = req.body;
+    const { position_la, position_en, desc, type, status } = req.body;
 
     const job = new Job({
-      position: position,
+      position_la: position_la,
+      position_en: position_en,
       desc: desc,
       type: type,
       image: imageFile,

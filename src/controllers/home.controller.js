@@ -5,6 +5,7 @@ const Service = require('../models/Service');
 const Customer = require('../models/Customer');
 const Product = require('../models/Product');
 const Job = require('../models/Job');
+const Volentear = require('../models/Volentear');
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -27,9 +28,14 @@ exports.get_home = async (req, res, next) => {
 exports.get_service = async (req, res, next) => {
   try {
     const services = await Service.find({}).sort({ createdAt: -1 });
+    const projects = await Project.find({}).sort({ createdAt: -1 });
+    const customers = await Customer.find({}).sort({ createdAt: -1 });
+
 
     res.render("service", {
-      services: services
+      services: services,
+      projects: projects,
+      customers: customers
     });
   } catch (error) {
     next(error);
@@ -62,7 +68,11 @@ exports.get_home_products = async (req, res, next) => {
 
 exports.get_home_volentears = async (req, res, next) => {
   try {
-    res.render('volentear')
+    const volunteers = await Volentear.find({}).sort({ createdAt: -1 });
+
+    res.render('volentear', {
+      volunteers: volunteers
+    })
   } catch (error) {
     next(error)
   }

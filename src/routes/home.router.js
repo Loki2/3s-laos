@@ -19,7 +19,7 @@ router.get("/electrical-consult", get_service_electrical);
 
 router.get("/products", get_home_products);
 
-router.get("/volentears", get_home_volentears);
+router.get("/volunteers", get_home_volentears);
 
 router.get("/jobs", get_home_jobs);
 

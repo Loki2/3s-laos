@@ -314,7 +314,45 @@ li{
 
 
 
+/* my owner style */
+.company-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 1px;
+}
 
+.company-recent-work {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.company-customer-logo {
+    width: 40px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.company-blog-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.company-product-image {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.company-employee-image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
 
 
 
@@ -2838,7 +2876,7 @@ select:focus {
     position: relative;
     display: block;
     background: #ffffff;
-    padding-top: 110px;
+    padding-top: 50px;
     padding-bottom: 50px;
 }
 .single-blog-post {
@@ -10441,11 +10479,11 @@ li .single-footer-contact-info .text p span{
     display: block;
 }
 .author-box-holder .inner-box .img-box{
-    width: 100px;
+    width: 200px;
 }
 .author-box-holder .inner-box .img-box img {
     width: 100%;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 .author-box-holder .inner-box .img-box,
 .author-box-holder .inner-box .text{
@@ -10469,7 +10507,7 @@ li .single-footer-contact-info .text p span{
 }
 .author-box-holder .inner-box .text p{
     line-height: 25px;
-    margin: 16px 0 23px;
+    margin: 7px 0 23px;
 }
 .author-box-holder .inner-box .text .author-social-links{
     position: relative;

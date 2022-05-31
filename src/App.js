@@ -69,7 +69,8 @@ const ProjectRoutes = require('./routes/project.router');
 const ProductRoutes = require('./routes/product.router');
 const BlogRoutes = require('./routes/blog.router');
 const JobRoutes = require('./routes/job.router');
-const VolentearRoutes = require('./routes/volentear.router')
+const VolentearRoutes = require('./routes/volentear.router');
+const EmployeeRoutes = require('./routes/employee.router');
 
 
 app.use('/auth', AuthRoutes);
@@ -83,6 +84,7 @@ app.use('/admin/products', ProductRoutes);
 app.use('/admin/blogs', BlogRoutes);
 app.use('/admin/jobs', JobRoutes);
 app.use('/admin/volentears', VolentearRoutes);
+app.use('/admin/employees', EmployeeRoutes);
 
 
 //Home Router

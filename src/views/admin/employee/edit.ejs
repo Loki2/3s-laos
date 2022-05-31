@@ -12,64 +12,80 @@
 				<div class="pd-20 card-box mb-10">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Update customer information form</h4>
+							<h4 class="text-blue h4">ຟອມແກ້ໄຂຂໍ້ມູນ</h4>
 						</div>
 						<div class="pull-right">
-							<a href="/admin/customers" class="btn btn-outline-primary btn-sm scroll-click">ກັບຄືນ</a>
+							<a href="/admin/employees" class="btn btn-outline-primary btn-sm scroll-click">ກັບຄືນ</a>
 						</div>
 					</div>
-					<form action="/admin/customers/edit/<%= id %>" method="POST" enctype="multipart/form-data">
+					<form action="/admin/employees/edit/<%= id %>" method="POST" enctype="multipart/form-data">
 						<div class="row">
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-4 col-sm-12">
 								<div class="form-group">
-									<label>Organize Name Lao*</label>
-									<input type="text" name="name_lao" id="name_lao" value="<%= name_lao %>" class="form-control" placeholder="Organize Name Lao..." required>
+									<label>Firstname*</label>
+									<input type="text" name="firstname" id="firstname" value="<%= firstname %>" class="form-control" placeholder="John..." required>
+								</div>
+							</div>
+              <div class="col-md-4 col-sm-12">
+								<div class="form-group">
+									<label>Lastname*</label>
+									<input type="text" name="lastname" id="lastname" value="<%= lastname %>" class="form-control" placeholder="Smith..." required>
 								</div>
 							</div>
 
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-2 col-sm-12">
 								<div class="form-group">
-									<label>Organize Name Eng*</label>
-									<input type="text" name="name_eng" id="name_eng" value="<%= name_eng %>" class="form-control" placeholder="Organize Name Lao..." required>
+									<label>Gender*</label>
+									<select class="custom-select2 form-control" name="gender" style="width: 100%; height: 35px;">
+                      <option value="<%= gender %>" disabled><%= gender %></option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+									</select>
 								</div>
 							</div>
-														
+
+              <div class="col-md-2 col-sm-12">
+								<div class="form-group">
+									<label>Date of birth*</label>
+									<input class="form-control date-picker" name="dob" id="dob" value="<%= dob %>" placeholder="Select Date" type="text">
+								</div>
+							</div>														
               <div class="col-md-12 col-sm-12">
 								<div class="form-group">
-									<label>Description*</label>
+									<label>Biography*</label>
                   <!-- <textarea type="text" name="desc" id="desc" class="textarea_editor form-control border-radius-5" maxlength="150" placeholder="ໃສ່ຄຳອະທີບາຍ (150ອັກສອນ) ..."></textarea> -->
-                  <textarea type="text" name="desc" id="desc" class="form-control" placeholder="Description (100 Characters) ..."><%= desc %></textarea>
-
+                  <textarea type="text" name="bio" id="bio" class="form-control" placeholder="Biography (100 Characters) ..."><%= bio %></textarea>
 								</div>
 							</div>
 						</div>
 						<hr>
             <div class="row">
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-4 col-sm-12">
 								<div class="form-group">
 									<label>Address1*</label>
 									<input type="text" name="address_1" id="address_1" value="<%= address_1 %>" class="form-control" placeholder="Enter Address 1..." required>
 								</div>
 							</div>
 
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-4 col-sm-12">
 								<div class="form-group">
 									<label>Address2*</label>
 									<input type="text" name="address_2" id="address_2" value="<%= address_2 %>" class="form-control" placeholder="Enter Address 2..." required>
 								</div>
 							</div>
 
-              <div class="col-md-4 col-sm-12">
+              <div class="col-md-2 col-sm-12">
 								<div class="form-group">
 									<label>City*</label>
 									<input type="text" name="city" id="city" value="<%= city %>" class="form-control" placeholder="Enter City..." required>
 								</div>
 							</div>
 
-              <div class="col-md-4 col-sm-12">
+              <div class="col-md-2 col-sm-12">
 								<div class="form-group">
 									<label>Province/State*</label>
-									<input type="text" name="state" id="state" value="<%= state %>" class="form-control" placeholder="Enter Province or State..." required>
+									<input type="text" name="province" id="province" value="<%= province %>" class="form-control" placeholder="Enter Province or State..." required>
 								</div>
 							</div>
 
@@ -79,16 +95,13 @@
 									<input type="text" name="country" id="country" value="<%= country %>" class="form-control" placeholder="Enter Country..." required>
 								</div>
 							</div>
-            </div>
 
-            <div class="row">
-              <div class="col-md-2 col-sm-12">
+              <div class="col-md-3 col-sm-12">
 								<div class="form-group">
 									<label>Contact*</label>
 									<input type="text" name="contact" id="contact" value="<%= contact %>" class="form-control" placeholder="Enter Contact or Line ID etc,..." required>
 								</div>
 							</div>
-
 
               <div class="col-md-2 col-sm-12">
 								<div class="form-group">
@@ -97,14 +110,7 @@
 								</div>
 							</div>
 
-              <div class="col-md-4 col-sm-12">
-								<div class="form-group">
-									<label>Link*</label>
-									<input type="text" name="link" id="link" value="<%= site %>" class="form-control" placeholder="https://www.example.com..." required>
-								</div>
-							</div>
-
-              <div class="col-md-4 col-sm-12">
+              <div class="col-md-3 col-sm-12">
 								<div class="form-group">
 									<label>Facebook Page*</label>
 									<input type="text" name="facebook" id="facebook" value="<%= facebook %>" class="form-control" placeholder="https://www.facebook.com/example_n97..." required>
@@ -112,33 +118,50 @@
 							</div>
             </div>
 
-						<div class="row">
-              <div class="col-md-6 col-sm-12">
+            <div class="row">
+              <!-- <div class="col-md-4 col-sm-12">
 								<div class="form-group">
-									<label>Logo Image</label>
-									<input type="file" name="logoImage" id="formFile" value="<%= logo %>" class="form-control" accept="image/jpg, image/jpeg, image/png"/>
+									<label>Employee Image</label>
+									<input type="file" name="employeeImage" id="formFile" class="form-control" accept="image/jpg, image/jpeg, image/png" required/>
+								</div>
+							</div> -->
+
+              <div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label>Position*</label>
+									<input type="text" name="position" id="position" value="<%= position %>" class="form-control" placeholder="Electrical Engineer..." required>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-12">
-								<div class="form-group">
-									<label>Remark</label>
-									<input type="text" name="remark" id="remark" value="<%= remark %>" class="form-control" placeholder="Enter Remark..." required>
-									<!-- <select class="custom-select2 form-control" name="slug" style="width: 100%; height: 35px;">
-											<option value="">aaaa</option>
-									</select> -->
-								</div>
-							</div>
+
               <div class="col-md-2 col-sm-12">
 								<div class="form-group">
-									<label>Status*</label>
-									<select class="custom-select2 form-control" name="status" id="status" style="width: 100%; height: 35px;"required>
-										<option value="<%= status %>"><%= status %></option>
-                    <hr>
-                    <option value="active">Active</option>
-										<option value="inactive">Inactive</option>
-									</select>
+									<label>Status</label>
+                  <select class="custom-select2 form-control" name="mentalStatus" style="width: 100%; height: 35px;">
+                    <option value="<%= mentalStatus %>" disabled><%= mentalStatus %>-currently</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Other">Other</option>
+                  </select>
 								</div>
 							</div>
+
+              <div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label>Blood</label>
+									<select class="custom-select2 form-control" name="blood" style="width: 100%; height: 35px;">
+                    <option value="<%= blood %>" disabled><%= blood %>-currently</option>
+                    <option value="Group A">Group A</option>
+                    <option value="Group B">Group B</option>
+                    <option value="Group AB">Group AB</option>
+                    <option value="Group O">Group O</option>
+                  </select>
+								</div>
+							</div>
+            </div>
+
+						<div class="row">
+              
+							
 						</div>
             <button type="submit" class="btn btn-outline-primary">Update</button>
 						</div>

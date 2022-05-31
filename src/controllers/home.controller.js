@@ -6,6 +6,7 @@ const Customer = require('../models/Customer');
 const Product = require('../models/Product');
 const Job = require('../models/Job');
 const Volentear = require('../models/Volentear');
+const Employee = require("../models/Employee");
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -13,12 +14,15 @@ exports.get_home = async (req, res, next) => {
     const projects = await Project.find({}).sort({ createdAt: -1 });
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
     const customers = await Customer.find({}).sort({ createdAt: -1 });
+    const employees = await Employee.find({}).sort({ createdAt: -1 });
+    
 
     res.render("index", {
       banners: banners,
       projects: projects,
       blogs: blogs,
       customers: customers,
+      employees: employees
     });
   } catch (error) {
     next(error);
@@ -95,7 +99,11 @@ exports.get_home_jobs = async (req, res, next) => {
 
 exports.get_home_about = async (req, res, next) => {
   try {
-    res.render('about')
+    const employees = await Employee.find({}).sort({ createdAt: -1 });
+
+    res.render('about', {
+      employees: employees
+    })
   } catch (error) {
     next(error)
   }

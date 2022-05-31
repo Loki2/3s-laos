@@ -62,7 +62,7 @@ exports.get_signout = async (req, res, next) => {
     // console.log('loggedout user:', isUser)
 
     res.cookie("jwt", "", { maxAge: 1 });
-    res.redirect("/auth/signin");
+    res.redirect("/");
   } catch (error) {
     next(error);
   }

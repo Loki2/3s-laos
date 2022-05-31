@@ -13,80 +13,85 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>System Users</h4>
+								<h4>Employee Management</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="/admin">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Users</li>
+									<li class="breadcrumb-item active" aria-current="page">Employee</li>
 								</ol>
 							</nav>
 						</div>
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
-								<a class="btn btn-primary" href="/admin/users/add-user" role="button">
+								<a class="btn btn-primary" href="/admin/employees/add-employee" role="button">
 									Create
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-
         <div class="card-box pb-20">
-          <div class="h5 pd-20 mb-0">Management Users</div>
+          <div class="h5 pd-20 mb-0">All Employees</div>
           <table class="data-table table nowrap">
             <thead>
               <tr>
-                <th class="table-plus">Username</th>
-                <th>Email</th>
+                <th class="table-plus">Firstname</th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
                 <th>Contact</th>
                 <th>Phone</th>
-                <th>Create Date</th>
-                <th>Permission</th>
+                <th>Position</th>
+                <th>Blood</th>
+                <th>Status</th>
+                <th>Created At</th>
                 <th class="datatable-nosort">Actions</th>
               </tr>
             </thead>
-            <% if(typeof users !== 'undefined') { %>
+            <% if(typeof employees !== 'undefined') { %>
               <tbody>
-                <% users.forEach(function(user) { %>
+                <% employees.forEach(function(employee){ %>
                 <tr>
                   <td class="table-plus">
                     <div class="name-avatar d-flex align-items-center">
-                      <div class="user-avatar mr-2 flex-shrink-0">
-                        <% if (user.image == "" ) { %>
-                            <img src="/uploads/noimage.png" class="border-radius-10 shadow" width="48px"  alt="">
-                          <% } else { %>
-                            <img src="/uploads/images/profiles/<%= user._id %>/<%= user.image %>" class="border-radius-10 shadow" width="48px" alt="">
-                        <% } %>                         
+                      <div class="avatar mr-2 flex-shrink-0">
+                        <% if(employee.image == ""){ %>
+                          <img src="/uploads/noimage.png" class="border-radius-10 shadow" width="40" height="40" alt="">
+                        <% } else { %>
+                          <img src="/uploads/images/employees/<%= employee.id %>/<%= employee.image %>" class="border-radius-10 shadow" width="40" height="40" alt="">
+                        <% } %>
                       </div>
                       <div class="txt">
-                        <div class="weight-600"><%= user.username %></div>
+                        <div class="weight-600"><%= employee.firstname %></div>
                       </div>
                     </div>
                   </td>
-                  <td><%= user.email %></td>
-                  <td><%= user.contact %></td>
-                  <td><%= user.phone %></td>
-                  <td><%= user.createdAt.toLocaleString() %></td>
-
-                  <td><span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7"><%= user.role %></span></td>
+                  <td><%= employee.lastname %></td>
+                  <td><%= employee.gender %></td>
+                  <td><%= employee.dob.toLocaleDateString() %></td>
+                  <td><%= employee.contact %></td>
+                  <td><%= employee.phone %></td>
+                  <td><%= employee.position %></td>
+                  <td><%= employee.blood %></td>
+                  <td><%= employee.mentalStatus %></td>
+                  <td><%= employee.createdAt.toLocaleDateString() %></td>
                   <td>
                     <div class="dropdown">
                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <i class="dw dw-more"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="/admin/users/<%= user._id %>"><i class="dw dw-eye"></i> View Information</a>
-                        <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Update Profile</a>
-                        <a class="dropdown-item" href="/admin/users/reset-password/<%= user._id %>"><i class="dw dw-password"></i>Reset Password</a>
-                        <a class="dropdown-item" href="#"><i class="dw dw-lock"></i> Change Permission</a>
+                        <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> Report</a>
+                        <a class="dropdown-item" href="/admin/employees/edit/<%= employee._id %>"><i class="dw dw-edit2"></i> Edit</a>
+                        <a class="dropdown-item" href="/admin/employees/delete/<%= employee._id %>"><i class="dw dw-delete-3"></i> Delete</a>
                       </div>
                     </div>
                   </td>
                 </tr>
                 <% }); %>
               </tbody>
-            <% } else { %>
+            <% }else { %>
               <tbody>
                 <tr>
                   <td class="table-plus">
@@ -99,6 +104,9 @@
                       </div>
                     </div>
                   </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -118,7 +126,7 @@
                   </td>
                 </tr>
               </tbody>
-            <% }%>
+            <% } %>
           </table>
         </div>
 

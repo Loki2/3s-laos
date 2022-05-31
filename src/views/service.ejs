@@ -63,11 +63,13 @@
                 <div class="img-holder">
                   <% if( service.image == '') { %>
                   <img
+                    class="company-blog-image"
                     src="/frontend/images/services/v2-1.jpg"
                     alt="Awesome Image"
                   />
                   <% }else { %>
                   <img
+                    class="company-blog-image"
                     src="/uploads/images/services/<%= service._id %>/<%= service.image %>"
                     alt="Awesome Image"
                   />
@@ -162,11 +164,13 @@
                   <div class="img-holder">
                     <% if(project.image == '') { %>
                       <img
+                        class="company-recent-work"
                         src="/frontend/images/services/1.jpg"
                         alt="Awesome Image"
                       />
                     <% }else{ %>
                       <img
+                        class="company-recent-work"
                         src="/uploads/images/projects/<%= project._id %>/<%= project.image %>"
                         alt="Awesome Image"
                       />

@@ -90,7 +90,7 @@ exports.get_updateEmployee = async (req, res, next) => {
     const { id } = req.params;
     const employee = await Employee.findById({ _id: id });
 
-    console.log("employee:", employee)
+    // console.log("employee:", employee)
     res.render('admin/employee/edit', {
       id: employee._id,
       firstname: employee.firstname,

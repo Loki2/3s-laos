@@ -36,7 +36,7 @@ exports.post_addUser = async (req, res, next) => {
       res.status(400).json({ message: "Please Fill all require fields...!" });
     }
 
-    console.log("user data", req.body);
+    // console.log("user data", req.body);
 
     //Validation Username
     const isValidUsername = validateUsername(username);

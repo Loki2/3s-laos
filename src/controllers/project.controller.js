@@ -112,7 +112,6 @@ exports.get_updateProject = async ( req, res, next) => {
 
     const customers = await Customer.find({}).sort({ createdAt: -1 });
 
-    console.log(project)
 
     res.render('admin/project/edit', {
       customers: customers,

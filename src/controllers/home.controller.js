@@ -7,6 +7,7 @@ const Product = require('../models/Product');
 const Job = require('../models/Job');
 const Volentear = require('../models/Volentear');
 const Employee = require("../models/Employee");
+const Feedback = require('../models/Feedback');
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -53,6 +54,14 @@ exports.get_service_electrical = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.get_home_agriculture = async (req, res, next) => {
+  try {
+    res.render("agriculture");
+  } catch (error) {
+    next(error);
+  }
+}
 
 exports.get_home_products = async (req, res, next) => {
   try {
@@ -106,5 +115,39 @@ exports.get_home_about = async (req, res, next) => {
     })
   } catch (error) {
     next(error)
+  }
+}
+
+exports.get_home_contact = async (req, res, next) => {
+  try {
+    res.render("contact");
+  } catch (error) {
+    next(error);
+  }
+}
+
+exports.post_home_contact = async (req, res, next) => {
+  try {
+   const { name, email, content } = req.body;
+
+   const feedback = new Feedback({
+      name: name,
+      email: email,
+      content: content
+   });
+
+   await feedback.save();
+
+   res.redirect('/')
+  } catch (error) {
+    next(error);
+  }
+}
+
+exports.get_home_term = async (req, res, next) => {
+  try {
+    res.render("term");
+  } catch (error) {
+    next(error);
   }
 }

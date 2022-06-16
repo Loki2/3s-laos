@@ -354,7 +354,10 @@ li{
     object-fit: cover;
 }
 
-
+.contact-company-image {
+    object-fit: cover;
+    padding: 20px 0 20px 0;
+}
 
 
 

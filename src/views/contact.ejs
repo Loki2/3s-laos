@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./layouts/Header')%>
+
+    <body>
+        <div class="boxed_wrapper">
+            <div class="preloader"></div>
+            <%- include('./layouts/Navigation')%>
+
+                <!--Start breadcrumb area-->
+                <section class="breadcrumb-area" style="background-image: url(/frontend/images/resources/breadcrumb-bg.jpg);
+        ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="inner-content clearfix">
+                                    <div class="title">
+                                        <h1>Contact Us</h1>
+                                    </div>
+                                    <div class="breadcrumb-menu float-right">
+                                        <ul class="clearfix">
+                                            <li><a href="/">Home</a></li>
+                                            <li class="active">Contact</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End breadcrumb area-->
+
+                <!--Start Company Overview Area-->
+                <section class="company-overview-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="intro-box clearfix">
+                                    <div class="sec-title">
+                                        <p>Company Overview</p>
+                                        <div class="title">
+                                            TO BE RECOGNIZED AS A LEADING CONTRACTING COMPANY IN LAO PDR
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            The key to the company's success is the maintenance of close working
+                                            relationship with the clients through ensuring the best possible solutions
+                                            to their needs;
+                                            To establish and maintain a thoroughknowledge and understanding of client's
+                                            objective and help them maximize the benefits.
+                                            As we did from week one, we carry-out to provide cutting edge electrical
+                                            solutions to customers and major client of Lao PDR
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End Company Overview Area-->
+
+                <!--Start Checkout area-->
+                <section class="checkout-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="form billing-info">
+                                    <div class="image-box">
+                                        <img class="contact-company-image" src="/frontend/images/company.png"
+                                            alt="Awesome Image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="form shipping-info">
+                                    <div class="shop-page-title">
+                                        <div class="title">Feedback Us<span> some text</span></div>
+                                    </div>
+                                    <form method="POST" action="/contact">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="field-label">Name*</div>
+                                                <div class="field-input">
+                                                    <input type="text" name="name" placeholder="john j.k deo" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="field-label">Email*</div>
+                                                <div class="field-input">
+                                                    <input type="text" name="email" placeholder="example@example.com" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="field-label">Content</div>
+                                                <div class="field-input">
+                                                    <textarea name="content" placeholder="Special feedback to us..." required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button class="btn-one" type="submit">
+                                                    Submit Here<span class="flaticon-next"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End Checkout area-->
+
+
+
+                <%- include('./layouts/Footer')%>
+        </div>
+
+        <div class="scroll-to-top scroll-to-target" data-target="html">
+            <span class="fa fa-angle-up"></span>
+        </div>
+
+        <%- include('./layouts/Script')%>
+    </body>
+
+    <!-- about 06:46:46 GMT -->
+
+</html>

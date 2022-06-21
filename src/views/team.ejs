@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./layouts/Header')%>
+
+    <body>
+        <div class="boxed_wrapper">
+            <div class="preloader"></div>
+            <%- include('./layouts/Navigation')%>
+
+                <!--Start breadcrumb area-->
+                <section class="breadcrumb-area" style="
+          background-image: url(/frontend/images/resources/breadcrumb-bg.jpg);
+        ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="inner-content clearfix">
+                                    <div class="title">
+                                        <h1>Our Development Teams</h1>
+                                    </div>
+                                    <div class="breadcrumb-menu float-right">
+                                        <ul class="clearfix">
+                                            <li><a href="/">Home</a></li>
+                                            <li class="active">Teams</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End breadcrumb area-->
+
+                <!--Start Team Area-->
+                <section class="team-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="sec-title float-left">
+                                    <p>Behind Our Company</p>
+                                    <div class="title">Expert & Experinced <span>Team</span></div>
+                                </div>
+                                <div class="view-all-member style2 float-right">
+                                    <!-- <a class="btn-one" href="#">All Members<span class="flaticon-next"></span></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <% employees.forEach(function(employee) { %>
+                                <!--Start Single Team Member-->
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="single-team-member">
+                                        <div class="img-holder">
+                                            <% if(employee.image=="" ) { %>
+                                                <img src="/frontend/images/noimage.png" class="company-employee-image"
+                                                    alt="Awesome Image" />
+                                                <% } else { %>
+                                                    <img src="/uploads/images/employees/<%= employee._id %>/<%= employee.image %>"
+                                                        class="company-employee-image" alt="Awesome Image" />
+                                                    <% } %>
+
+                                                        <ul class="sociallinks">
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-facebook"
+                                                                        aria-hidden="true"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-twitter"
+                                                                        aria-hidden="true"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-skype"
+                                                                        aria-hidden="true"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-phone"
+                                                                        aria-hidden="true"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-instagram"
+                                                                        aria-hidden="true"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="overlay">
+                                                            <div class="box">
+                                                                <div class="link">
+                                                                    <!-- <a class="btn-two" href="#">View Profile<span
+                                                                    class="flaticon-next"></span></a> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        </div>
+                                        <div class="name text-center">
+                                            <p><span>
+                                                    <%= employee.position %>
+                                                </span></p>
+                                            <h3>
+                                                <%= employee.firstname %>
+                                                    <%= employee.lastname %>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Single Team Member-->
+                                <% }); %>
+                        </div>
+                    </div>
+                </section>
+                <!--End Team Area-->
+
+                <%- include('./layouts/Footer')%>
+        </div>
+
+        <div class="scroll-to-top scroll-to-target" data-target="html">
+            <span class="fa fa-angle-up"></span>
+        </div>
+
+        <%- include('./layouts/Script')%>
+    </body>
+
+    <!-- about 06:46:46 GMT -->
+
+</html>

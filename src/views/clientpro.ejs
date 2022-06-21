@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./layouts/Header')%>
+
+  <body>
+    <div class="boxed_wrapper">
+
+      <div class="preloader"></div>
+
+      <%- include('./layouts/Navigation')%>
+
+        <!--Start breadcrumb area-->
+        <section class="breadcrumb-area style2"
+          style="background-image: url(/frontend/uploads/services/banner_2.jpg);">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="inner-content-box clearfix">
+                  <div class="title-s2 text-center">
+                    <span>Clients And Projects</span>
+                    <h1>The Client Project Solutions</h1>
+                  </div>
+                  <div class="breadcrumb-menu float-left">
+                    <ul class="clearfix">
+                      <li><a href="/">Home</a></li>
+                      <li class="active"><a href="/clientpro">Clents & Projects</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End breadcrumb area-->
+
+        <!--Start Brand area-->
+        <section class="brand-area">
+          <div class="container">
+            <div class="sec-title">
+              <p>Our Clients</p>
+            </div>
+            <div class="row">
+              <div class="col-xl-12">
+                <% if(typeof customers !=='undefined' ) { %>
+                  <ul class="brand-items-carousel owl-carousel owl-theme">
+                    <% customers.forEach(function(customer){ %>
+                      <!--Start Single Brand Item-->
+                      <li class="single-brand-item wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <a href="#">
+                          <% if(customer.logo=="" ) { %>
+                            <img class="company-customer-logo" src="/uploads/noimage.png" alt="Awesome Brand Image" />
+                            <% }else { %>
+                              <img class="company-customer-logo"
+                                src="/uploads/images/customers/logos/<%= customer._id %>/<%= customer.logo %>"
+                                alt="Awesome Brand Image" />
+                              <% } %>
+                        </a>
+                        <div class="overlay-content">
+                          <p>
+                            <%= customer.name_eng %>
+                          </p>
+                        </div>
+                      </li>
+                      <!--End Single Brand Item-->
+                      <% }); %>
+                  </ul>
+                  <% }else { %>
+                    <ul class="brand-items-carousel owl-carousel owl-theme">
+                      <!--Start Single Brand Item-->
+                      <li class="single-brand-item wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <a href="#"><img src="/frontend/images/brand/1.png" alt="Awesome Brand Image" /></a>
+                        <div class="overlay-content">
+                          <p>Miesian</p>
+                        </div>
+                      </li>
+                      <!--End Single Brand Item-->
+                    </ul>
+                    <% } %>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End Brand area-->
+
+
+        <!--Start blog area-->
+        <section id="blog-area" class="blog-default-area">
+          <div class="container">
+            <div class="row">
+              <% projects.forEach(function(project){ %>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                  <div class="single-blog-colum-style1">
+                    <!--Start single blog post-->
+                    <div class="single-blog-post style3 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                      <div class="img-holder">
+                        <% if(project.image=="" ) { %>
+                          <img src="/frontend/images/blog/v1-1.jpg" alt="Awesome Image">
+                        <% }else{%>
+                          <img src="/uploads/images/projects/<%= project._id %>/<%= project.image %>" alt="Awesome Image">
+                        <% } %>
+                        <div class="overlay-style-two"></div>
+                        <div class="overlay">
+                          <div class="box">
+                            <div class="post-date">
+                              <h3><%= project.createdAt.toLocaleDateString() %></h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-holder">
+                        <h3 class="blog-title"><a href="#"><%= project.name_lao %></a></h3>
+                        <div class="meta-box">
+                          <ul class="meta-info">
+                            <li>By <a href="#">Admin</a></li>
+                            <!-- <li>In <a href="#"></a></li> -->
+                          </ul>
+                        </div>
+                        <div class="text">
+                          <p><%= project.name_eng %></p>
+                          <!-- <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a> -->
+                        </div>
+                      </div>
+                    </div>
+                    <!--End single blog post-->
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </section>
+        <!--End blog area-->
+
+
+        <%- include('./layouts/Footer')%>
+
+    </div>
+
+
+    <div class="scroll-to-top-style2 scroll-to-target" data-target="html">
+      <span class="fa fa-angle-up"></span>
+    </div>
+
+    <%- include('./layouts/Script')%>
+  </body>
+  <!-- blog 06:54:30 GMT -->
+
+</html>

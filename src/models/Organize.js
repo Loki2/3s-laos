@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 
 const orgSchema = new mongoose.Schema(
   {
-    code:{
-      type: String,
-      required: true
-    },
     name_lao:{
         type: String,
         required: true
@@ -19,17 +15,44 @@ const orgSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    logo:{
+    bio: {
       type: String,
       required: true
     },
-    category: {
-        type: String,
-        required: true
-    },
-    status: {
+    contact: {
       type: String,
       required: true
+    },
+    phone: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true
+    },
+    address: {
+      type: String,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    province: {
+      type: String,
+      required: true
+    },
+    country: {
+      type: String,
+      required: true
+    },
+    chart:{
+      type: String,
+      required: true
+    },
+    found_date: {
+        type: Date
     }
   },
   {

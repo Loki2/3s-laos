@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./layouts/Header')%>
+
+    <body>
+        <div class="boxed_wrapper">
+            <div class="preloader"></div>
+            <%- include('./layouts/Navigation')%>
+
+                <!--Start breadcrumb area-->
+                <section class="breadcrumb-area" style="
+          background-image: url(/frontend/images/resources/breadcrumb-bg.jpg);
+        ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="inner-content clearfix">
+                                    <div class="title">
+                                        <h1>Company Background</h1>
+                                    </div>
+                                    <div class="breadcrumb-menu float-right">
+                                        <ul class="clearfix">
+                                            <li><a href="/">Home</a></li>
+                                            <li class="active">Our Firm</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End breadcrumb area-->
+
+                <!--Start Company Overview Area-->
+                <section class="company-overview-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="intro-box clearfix">
+                                    <div class="sec-title">
+                                        <p><%= name_eng %> <%= name_lao %></p>
+                                        <div class="title">A LEADING CONTRACTING COMPANY<br />
+                                            <span>IN LAO PDR</span>
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                          <%= desc %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12">
+                                <div class="single-service-top">
+                                    <div class="single-service-image-box">
+                                      <% if(chart == "") { %>
+                                      <img src="/frontend/uploads/electrical/electrict.jpg" alt="Awesome Image">
+                                    <% }else { %>
+                                      <img src="/uploads/images/organize/<%= id %>/<%= chart %>" alt="Awesome Image">
+                                    <% } %>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Company Biography</h2>
+                                        <div class="inner">
+                                            <p><%= bio %></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="how-work-box">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="image-box">
+                                                <img src="/frontend/uploads/electrical/3s_background_elec.jpeg"
+                                                    alt="Awesome Image">
+                                                <img src="/frontend/uploads/electrical/elect-work2.png"
+                                                    alt="Awesome Image">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="how-works-content">
+                                                <h2>How We Work</h2>
+                                                <ul>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>VISSION</span>
+                                                            <h3>Brief & Concept</h3>
+                                                            <p>We have 5 core values of Safety, Honesty, Integrity,
+                                                                Transparency, and Innovation.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>MISSION</span>
+                                                            <h3>Detailed Design</h3>
+                                                            <p>We are committed to a high quality of workmanship and
+                                                                provide a safe work environment
+                                                                on all projects. We know that people do business
+                                                                with companies that meet their needs
+                                                                and provide reliable service. We attribute our
+                                                                success to building strategic partnerships
+                                                                and treating customers the way we want to be
+                                                                treated.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>AMBITION</span>
+                                                            <h3>Installation</h3>
+                                                            <p><strong>Staff:</strong> We foster professional
+                                                                development. We are one team, helping each other
+                                                                achieve the company’s objectives through a
+                                                                process of continuous improvement.</p>
+                                                            <p><strong>Clients:</strong> We enhance efficiency and
+                                                                reliability of our performance by implementing
+                                                                international standards. We aim to achieve a high
+                                                                level of client’s satisfaction.</p>
+                                                            <p><strong>Communities and Environment:</strong>We are
+                                                                responsible and care for the environment. We make
+                                                                the skills of Lao people like better competency,
+                                                                now, and for the next
+                                                                generations. We contribute to the growth of the Lao
+                                                                economy by supporting domestic businesses.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12">
+                                <div class="single-service-top">
+                                    <div class="text">
+                                        <h2>About Agriculture</h2>
+                                        <div class="inner">
+                                            <p>3S Agriculture Company Limited is established in June 2020 for production, process
+                                              and providing the agricultural products such as rice, vegetable, pork, fish, etc. to
+                                              domestic market at the beginning.<br />
+                                              Since we face Covid-19 situation in 2020, we have time to lookup at our real need to
+                                              be able live in this word. We analyzed many factors of need and the best solution for
+                                              Lao farmers. We will pay more attention for best quality of the products from
+                                              beginning of production until the hands of customers.</p>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="single-service-image-box">
+                                        <img src="/frontend/uploads/agriculture/agriculture&farm.png" alt="Awesome Image">
+                                    </div>
+                                </div>
+        
+                                <div class="how-work-box">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="image-box">
+                                                <img src="/frontend/uploads/agriculture/work.png" alt="Awesome Image">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="how-works-content">
+                                                <h2>How We Work</h2>
+                                                <ul>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>VISION</span>
+                                                            <h3>Brief & Concept</h3>
+                                                            <p>We have 5 core values of Safety, Integrity, Transparency, Innovation, and stability.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>MISSION</span>
+                                                            <h3>Detailed Design</h3>
+                                                            <p>Our mission is to provide the qualitative and reliable products in agricultural sections.
+                                                              We are committed to a high quality of agricultural products. We attribute our success to
+                                                              building strategy on sustainable markets, technics, and funding.
+                                                              We believe the quality in our work will represent us for years to come.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <span class="icon-tick"></span>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span>AMBITION</span>
+                                                            <h3>Installation</h3>
+                                                            <p>We foster professional development. <br> We are one team, helping each other achieve the company’s objectives through a
+                                                              process of continuous improvement.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>     
+        
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End Company Overview Area-->
+
+                <%- include('./layouts/Footer')%>
+        </div>
+
+        <div class="scroll-to-top scroll-to-target" data-target="html">
+            <span class="fa fa-angle-up"></span>
+        </div>
+
+        <%- include('./layouts/Script')%>
+    </body>
+
+    <!-- about 06:46:46 GMT -->
+
+</html>

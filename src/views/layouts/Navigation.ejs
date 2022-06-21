@@ -5,7 +5,7 @@
       <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="top-style1 clearfix">
           <p>
-            ບໍລິສັດອອກແບບການກໍ່ສ້າງ, ໂຄງຄາຍໄຟຟ້າ, ກະສິກຳອິນຊີ ແລະ ອື່ນໆ...<a href="#">ຕິດຕໍ່ງານກັບພວກເຮົາໄດ້ທີ</a>
+            ບໍລິສັດອອກແບບການກໍ່ສ້າງ, ໂຄງການໄຟຟ້າ, ກະສິກຳອິນຊີ ແລະ ອື່ນໆ...<a href="/contact">ຕິດຕໍ່ງານກັບພວກເຮົາໄດ້ທີ</a>
           </p>
         </div>
       </div>
@@ -26,7 +26,7 @@
                 <img src="/frontend/images/3s_logo.png" alt="Awesome Logo" />
               </a>
             </div>
-            <div class="main-menu-box float-right">
+            <div class="main-menu-box float-left">
               <nav class="main-menu clearfix">
                 <div class="navbar-header clearfix">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,10 +37,27 @@
                 </div>
                 <div class="navbar-collapse collapse clearfix">
                   <ul class="navigation clearfix">
-                    <li class="dropdown"><a href="/">Home</a></li>
+                    <li class="dropdown"><a href="/">
+                      <i class="fa fa-home"></i>Home
+                    </a></li>
 
                     <li class="dropdown">
-                      <a href="#">Services</a>
+                      <a href="#">
+                        <i class="fa fa-user"></i>
+                        Profile
+                      </a>
+                      <ul>
+                        <li><a href="/org">Our Firm</a></li>
+                        <li><a href="/teams">Our Team</a></li>
+                        <li><a href="/clientpro">Clients/Projects</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown">
+                      <a href="#">
+                        <i class="fa fa-gear"></i>
+                        Services
+                      </a>
                       <ul>
                         <li><a href="/services">All Service</a></li>
                         <li><a href="/electrical-consult">Electrical</a></li>
@@ -50,20 +67,28 @@
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Productions</a>
+                      <a href="#">
+                        <i class="fa fa-inbox"></i>
+                        Productions
+                      </a>
                       <ul>
-                        <li><a href="/products">View all Products</a></li>
+                        <li><a href="/products">Our Products</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Career</a>
+                      <a href="#">
+                        <i class="fa fa-user-plus"></i>
+                        Career
+                      </a>
                       <ul>
-                        <li><a href="/volunteers">CSR & Recent Works</a></li>
-                        <li><a href="/jobs">Hiring Jobs</a></li>
+                        <li><a href="/jobs">Job Vacancies/Internship</a></li>
+                        <li><a href="/volunteers">CSR</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Help</a>
+                      <a href="#">
+                        <i class="fa fa-question"></i>
+                        Help</a>
                       <ul>
                         <li><a href="/about">About Company</a></li>
                         <li><a href="/contact">Contact</a></li> 
@@ -81,7 +106,7 @@
                       <form method="post" action="#">
                         <div class="form-group">
                           <input type="search" name="search" placeholder="Search Here" required />
-                          <button type="submit">
+                          <button type="submit" disabled>
                             <i class="fa fa-search"></i>
                           </button>
                         </div>
@@ -142,7 +167,7 @@
             </ul>
             <ul class="header-social-links-style1 float-right">
               <li class="wow slideInUp" data-wow-delay="0ms" data-wow-duration="1200ms">
-                <a href="https://www.facebook.com/3selectrical/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/3selectrical/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
               </li>
               <li class="wow slideInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
                 <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>

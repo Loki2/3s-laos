@@ -264,7 +264,7 @@ li{
     position: relative;
     display: block;
     margin-top: -5px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 .sec-title.max-width{
     max-width: 650px;
@@ -323,6 +323,7 @@ li{
     padding: 1px;
 }
 
+
 .company-recent-work {
     width: 280px;
     height: 400px;
@@ -331,9 +332,8 @@ li{
 
 .company-customer-logo {
     width: 40px;
-    height: 60px;
+    height: 160px;
     object-fit: contain;
-    border-radius: 50%;
 }
 
 .company-blog-image {
@@ -3058,8 +3058,8 @@ select:focus {
     position: relative;
     display: block;
     background: #f6f6f6;
-    padding-top: 110px;
-    padding-bottom: 90px;
+    padding-top: 75px;
+    padding-bottom: 20px;
 }
 .brand-items{
     position: relative;
@@ -9484,7 +9484,7 @@ li .single-footer-contact-info .text p span{
     top: -300px;
     left: 0;
     bottom: -2000px;
-    width: 1px;
+    /* width: 1px; */
     background: #ededed;
     content: "";
     z-index: -1;
@@ -9500,12 +9500,12 @@ li .single-footer-contact-info .text p span{
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 65px;
-    height: 75px;
+    width: 86px;
+    height: 40px;
     text-align: center;
     background: #e9212e;
     display: block;
-    padding: 13px 0 6px;
+    padding: 8px 0 6px;
     transition: all 700ms ease 500ms;
     z-index: 3;
 }

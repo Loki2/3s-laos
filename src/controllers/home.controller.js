@@ -8,6 +8,7 @@ const Job = require('../models/Job');
 const Volentear = require('../models/Volentear');
 const Employee = require("../models/Employee");
 const Feedback = require('../models/Feedback');
+const Organize = require("../models/Organize");
 
 exports.get_home = async (req, res, next) => {
   try {
@@ -29,6 +30,60 @@ exports.get_home = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.get_org = async (req, res, next) => {
+  try {
+    const organize = await Organize.findOne();
+
+    console.log("org data", organize)
+
+    res.render("org", {
+        id: organize._id,
+        name_lao: organize.name_lao,
+        name_eng: organize.name_eng,
+        desc: organize.desc,
+        bio: organize.bio,
+        phone: organize.phone,
+        contact: organize.contact,
+        email: organize.email,
+        city: organize.city,
+        address: organize.address,
+        province: organize.province,
+        country: organize.country,
+        found_date: organize.found_date.toLocaleString(),
+        chart: organize.chart
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
+exports.get_teams = async (req, res, next) => {
+  try {
+    const employees = await Employee.find({}).sort({ createdAt: -1 });
+
+    res.render("team", {
+      employees: employees
+    })
+  } catch (error) {
+    next(error);
+  }
+
+}
+
+exports.get_clientsProj = async (req, res, next) => {
+  try {
+    const projects = await Project.find({}).sort({ createdAt: -1 });
+    const customers = await Customer.find({}).sort({ createdAt: -1 });
+
+    res.render("clientpro", {
+      projects: projects,
+      customers: customers,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
 
 exports.get_service = async (req, res, next) => {
   try {
@@ -105,7 +160,6 @@ exports.get_home_jobs = async (req, res, next) => {
 }
 
 
-
 exports.get_home_about = async (req, res, next) => {
   try {
     const employees = await Employee.find({}).sort({ createdAt: -1 });
@@ -151,3 +205,4 @@ exports.get_home_term = async (req, res, next) => {
     next(error);
   }
 }
+

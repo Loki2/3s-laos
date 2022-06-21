@@ -1,7 +1,10 @@
 const express = require("express");
 const {
   get_home,
+  get_org,
+  get_teams,
   get_service,
+  get_clientsProj,
   get_service_electrical,
   get_home_agriculture,
   get_home_products,
@@ -16,6 +19,12 @@ const {
 const router = express.Router();
 
 router.get("/", get_home);
+
+router.get("/org", get_org);
+
+router.get("/teams", get_teams);
+
+router.get("/clientpro", get_clientsProj);
 
 router.get("/services", get_service);
 

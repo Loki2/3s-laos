@@ -18,7 +18,7 @@
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                  <li class="breadcrumb-item"><a href="/admin/users/profile">My Profile</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/users/profile">My Profile</a></li>
 								</ol>
 							</nav>
 						</div>
@@ -30,7 +30,7 @@
 							<div class="profile-photo">
 								<a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-eye"></i></a>
 								<% if( image == '') { %>
-									<img src="/backend/vendors/images/photo1.jpg" alt="" class="avatar-photo">
+									<img src="/uploads/noimage.png" alt="" class="avatar-photo">
 									<% }else { %>
 									<img src="/uploads/images/profiles/<%= id %>/<%= image %>" alt="" class="avatar-photo">
 								<% } %>
@@ -40,7 +40,7 @@
 											<div class="modal-body pd-5">
 												<div class="img-container">
 													<% if( image == '') { %>
-														<img id="image" src="/backend/vendors/images/photo2.jpg" alt="Picture">
+														<img id="image" src="/uploads/noimage.png" alt="Picture">
 														<% }else { %>
 															<img id="image" src="/uploads/images/profiles/<%= id %>/<%= image %>" alt="Picture">
 													<% } %>
@@ -169,7 +169,7 @@
 																	<div class="form-group">
 																		<label>First Name:</label>
 																		<% if(firstname == ''){ %>
-																		<input class="form-control form-control-lg" type="text" name="firstname" id="firstname" placeholder="Sam..." />
+																		<input class="form-control form-control-lg" type="text" name="firstname" id="firstname" placeholder="Sam..."  required/>
 																		<% } else { %>
 																		<input class="form-control form-control-lg" type="text" name="firstname" id="firstname" value="<%= firstname %>" placeholder="Sam..." />
 																		<% } %>
@@ -180,7 +180,7 @@
 																	<div class="form-group">
 																		<label>Last Name:</label>
 																		<% if(lastname == ''){ %>
-																			<input class="form-control form-control-lg" type="text" name="lastname" id="lastname" placeholder="Smith...">
+																			<input class="form-control form-control-lg" type="text" name="lastname" id="lastname" placeholder="Smith..." required/>
 																		<% } else { %>
 																			<input class="form-control form-control-lg" type="text" name="lastname" id="lastname" value="<%= lastname %>" placeholder="Smith...">
 																		<% } %>
@@ -203,7 +203,7 @@
 																	<div class="form-group">
 																		<label>Contact:</label>
 																		<% if( contact == '' ) { %>
-																			<input class="form-control form-control-lg" type="text" name="contact" id="contact" placeholder="(+856)-20-2345-6789 Or ID" />
+																			<input class="form-control form-control-lg" type="text" name="contact" id="contact" placeholder="(+856)-20-2345-6789 Or ID" required/>
 																		<% } else { %>
 																			<input class="form-control form-control-lg" type="text" name="contact" id="contact" value="<%= contact %>" placeholder="(+856)-20-2345-6789 Or ID" />
 																		<% } %>
@@ -214,7 +214,7 @@
 																	<div class="form-group">
 																		<label>Phone</label>
 																		<% if( phone == '' ){ %>
-																			<input class="form-control form-control-lg" type="text" name="phone" id="phone"  placeholder="030-2345-678" />
+																			<input class="form-control form-control-lg" type="text" name="phone" id="phone"  placeholder="030-2345-678" required/>
 																		<% }else{ %>
 																			<input class="form-control form-control-lg" type="text" name="phone" id="phone" value="<%= phone %>" placeholder="030-2345-678" />
 																		<% } %>
@@ -226,7 +226,7 @@
 																	<div class="form-group">
 																		<label>Date of birth</label>
 																		<% if( dob == null) { %>
-																			<input class="form-control date-picker" type="text" name="dob" id="dob"  placeholder="19-09-1999" />
+																			<input class="form-control date-picker" type="text" name="dob" id="dob"  placeholder="19-09-1999"  required/>
 																		<% }else{ %>
 																			<input class="form-control date-picker" type="text" name="dob" id="dob" value="<%= dob %>" placeholder="19-09-1999" />
 																		<% } %>
@@ -237,7 +237,7 @@
 																	<div class="form-group">
 																		<label>Position:</label>
 																		<% if(position == ''){ %>
-																		<input class="form-control form-control-lg" type="text" name="position" id="position"  placeholder="ວິສະວະກອນພັງ ແລະ ໂຄງສ້າງ (Structure Engineer)" />
+																		<input class="form-control form-control-lg" type="text" name="position" id="position"  placeholder="ວິສະວະກອນພັງ ແລະ ໂຄງສ້າງ (Structure Engineer)" required/>
 																		<% }else { %>
 																		<input class="form-control form-control-lg" type="text" name="position" id="position" value="<%= position %>"  placeholder="ວິສະວະກອນພັງ ແລະ ໂຄງສ້າງ (Structure Engineer)" />
 																		<% } %>
@@ -259,7 +259,7 @@
 																	<div class="form-group">
 																		<label>Address</label>
 																		<% if( address == '' ) { %>
-																		<input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="23, Road JFK back street, Washington D.C, USA" />
+																		<input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="23, Road JFK back street, Washington D.C, USA" required/>
 																		<% } else { %>
 																		<input class="form-control form-control-lg" type="text" name="address" id="address" value="<%= address %>" placeholder="23, Road JFK back street, Washington D.C, USA" />
 																		<% } %>
@@ -270,7 +270,7 @@
 																	<div class="form-group">
 																		<label>City:</label>
 																		<% if( city == '' ) { %>
-																		<input class="form-control form-control-lg" type="text" name="city" id="city" placeholder="Saythany District..." />
+																		<input class="form-control form-control-lg" type="text" name="city" id="city" placeholder="Saythany District..." required/>
 																		<% } else { %>
 																		<input class="form-control form-control-lg" type="text" name="city" id="city" value="<%= city %>" placeholder="Saythany District..." />
 																		<% } %>
@@ -281,7 +281,7 @@
 																	<div class="form-group">
 																		<label>State/Province/Region</label>
 																		<% if( province == '') { %>
-																		<input class="form-control form-control-lg" type="text" name="province" id="province"  placeholder="ex: Vientiane Capital">
+																		<input class="form-control form-control-lg" type="text" name="province" id="province"  placeholder="ex: Vientiane Capital" required/>
 																		<% }else { %>
 																		<input class="form-control form-control-lg" type="text" name="province" id="province" value="<%= province %>" placeholder="ex: Vientiane Capital">
 																		<% } %>
@@ -319,9 +319,9 @@
 																	<div class="form-group">
 																		<label>Image File</label>
 																		<% if( image == '' ) { %>
-																		<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image" />
+																		<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image"  required/>
 																		<% } else { %>
-																			<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image" />
+																			<input class="form-control form-control-lg" type="file" name="profileImage" id="formFile" placeholder="profile image" required/>
 																		<% } %>
 																	</div>
 																</div>

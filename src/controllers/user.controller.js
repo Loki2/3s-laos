@@ -7,6 +7,7 @@ const {
 } = require("../utils/isValidated");
 const bcrypt = require("bcryptjs");
 
+
 exports.get_users = async (req, res, next) => {
   try {
     const users = await User.find({}).sort({ createdAt: -1 });
@@ -90,6 +91,51 @@ exports.post_addUser = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
+}
+
+//Loggedin User change their password
+exports.get_changePassword = async (req, res, next) => {
+    try {
+        const user = res.locals.user;
+
+        console.log("user locals:", user)
+
+        res.render("admin/users/change-password", {
+            id: user._id,
+        })
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+exports.post_changePassword = async (req, res, next) => {
+    try {
+        const user = res.locals.user;
+        const { password, confirmPassword } = req.body;
+
+        //Validate Password
+        const isValidPassword = validatePassword(password);
+        if(!isValidPassword) {
+        res.status(400).json({ message: 'Please must be leatst at 6 to 60 charecters'})
+        }
+        
+        //check matched password
+        if(password !== confirmPassword) {
+        res.status(400).json({ error: 'Password do not match...!'})
+        }
+
+        //Hash Password
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        await User.findOneAndUpdate({_id: user._id}, {
+            password: hashedPassword
+        });
+
+        res.redirect('/auth/signin')
+    } catch (error) {
+        next(error)
+    }
 }
 
 
@@ -238,8 +284,6 @@ exports.post_resetPassowrd = async (req, res, next) => {
     //Hash Password
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    console.log("hashed pwd:", hashedPassword)
-
     await User.update({_id: id}, {
       password: hashedPassword
     });
@@ -249,4 +293,35 @@ exports.post_resetPassowrd = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+}
+
+exports.get_updatePermission = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const user = await User.findById(id);
+
+        res.render('admin/users/permission', {
+            id: user._id,
+            role: user.role
+        } )
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.post_updatePermission = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+       const role = req.body.role;
+
+        await User.update({_id: id}, {
+            role: role
+        });
+
+        res.redirect('/admin/users')
+    } catch (error) {
+        next(error);
+    }
 }
